@@ -12,7 +12,7 @@
          WidthRequest="100"/>
         <Label
          x:Name="ResultLabel"
-         Text=""/>
+         Text="{Binding Resultado}"/>
         <Picker
          x:Name="HeadTailsPicker"
          Title="Selecione cara ou coroa">
@@ -24,6 +24,6 @@
         <Button
          x:Name="CoinFlipButton"
          Text="Girar a moeda"
-         Clicked="CoinFlipButton_Clicked"/>
+         Command="{Binding FlipCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

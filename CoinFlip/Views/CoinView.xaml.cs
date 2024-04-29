@@ -1,5 +1,6 @@
 namespace CoinFlip.Views;
 using CoinFlip.Models;
+using CoinFlip.ViewModels;
 
 public partial class CoinView : ContentPage
 {
@@ -7,6 +8,7 @@ public partial class CoinView : ContentPage
 	{
 		InitializeComponent();
 		HeadTailsPicker.SelectedIndex = 0;
+		this.BindingContext = new CoinViewModel();
 	}
 
     private void CoinFlipButton_Clicked(object sender, EventArgs e)
