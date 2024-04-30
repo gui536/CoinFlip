@@ -10,7 +10,6 @@ namespace CoinFlip.Models
     {
         //Propriedade ->  escrever Prop, enter e alterar o tipo e o nome Lado
         public string Lado { get; set; }
-
         public string Jogar()
         {
             int ladoSorteado = new Random().Next(2);

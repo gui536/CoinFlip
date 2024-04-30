@@ -10,9 +10,16 @@
          x:Name="CoinImage"
          Source="cara.png"
          WidthRequest="100"/>
+        
+        
         <Label
          x:Name="ResultLabel"
          Text="{Binding Resultado}"/>
+        
+        
+        
+        
+        
         <Picker
          x:Name="HeadTailsPicker"
          Title="Selecione cara ou coroa">

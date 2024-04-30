@@ -1,35 +1,36 @@
-﻿using CoinFlip.Models;
-using CommunityToolkit.Mvvm.ComponentModel;
-
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CoinFlip.Models;
 using System.Windows.Input;
+
 
 namespace CoinFlip.ViewModels
 {
-    public partial class CoinViewModel : ObservableObject, IDisposable
+    public partial class CoinViewModel : ObservableObject
     {
         [ObservableProperty]
-        public String _Resultado;
+        private string _lado;
 
-        
+        [ObservableProperty]
+        private string _ladoEscolhido;
 
-
-        public ICommand ResultCommand { get; private set; }
+        [ObservableProperty]
+        private string _resultado;
 
         public CoinViewModel() {
-
+            JogarCommand = new Command(Jogar);
         }
 
-        public ICommand FlipCommand => new Command(() => { _Resultado = new Coin().Jogar(); });
+        public ICommand JogarCommand { get; } 
 
-        public void Dispose()
+        public void Jogar()
         {
-            throw new NotImplementedException();
+            Coin coin = new Coin();
+            Resultado = coin.Jogar(LadoEscolhido);
         }
     }
 }
