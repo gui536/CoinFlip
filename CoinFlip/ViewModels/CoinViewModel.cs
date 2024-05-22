@@ -11,25 +11,30 @@ using System.Windows.Input;
 
 namespace CoinFlip.ViewModels
 {
-    public partial class CoinViewModel : ObservableObject, IDisposable
+    public partial class CoinViewModel : ObservableObject
     {
         [ObservableProperty]
         public String _Resultado;
 
+        [ObservableProperty]
+        public String _LadoEscolhido;
+
+        [ObservableProperty]
+        public String _Imagem;
+
+        public ICommand FlipCommand { get; private set; }
         
-
-
-        public ICommand ResultCommand { get; private set; }
-
-        public CoinViewModel() {
-
+        public CoinViewModel()
+        {
+            FlipCommand = new Command(Flip);
         }
 
-        public ICommand FlipCommand => new Command(() => { _Resultado = new Coin().Jogar(); });
-
-        public void Dispose()
+        public void Flip()
         {
-            throw new NotImplementedException();
+            Coin coin = new Coin();
+            _Resultado = coin.Jogar(_LadoEscolhido);
+            //Pegar o resultado da Moeda e escrever na label
+            Imagem = $"{coin.Lado}.png";
         }
     }
 }
