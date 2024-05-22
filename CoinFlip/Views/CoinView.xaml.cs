@@ -7,7 +7,7 @@ public partial class CoinView : ContentPage
 	public CoinView()
 	{
 		InitializeComponent();
-		HeadTailsPicker.SelectedIndex = 0;
+		
 		this.BindingContext = new CoinViewModel();
 	}
 
